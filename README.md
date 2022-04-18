@@ -45,11 +45,11 @@ Mercedes offers some cool features to request data from your own car. This is ni
 => type in your ConnectMe Credentials
 => eventually you will see (only once) the request that someone with the name of your prject (which you have defined in the Mercedes Developer Portal) wants to access your data - and you have to accept this
 
-2.) if the oAuth Porcedure was able to accept your credentials you mal see another very simple page
-=> you have been redirected to https://www.yourdomain.com/subdirectory/subdirectory/2GetAuthorizationCode.php
+2.) if the oAuth Procedure was able to accept your credentials you mal see another very simple page
+=> you have been redirected to https://www.yourdomain.com/subdirectory/2GetAuthorizationCode.php
 => click on the link "STARTE DATENABFRAGE BYOCAR"
 
-3.) if everything worked fine you can see another page https://www.yourdomain.com/subdirectory/subdirectory/3GetAllData.php
+3.) if everything worked fine you can see another page https://www.yourdomain.com/subdirectory/3GetAllData.php
 => first a curl_exec result
 => second a JSON dataset 
 => with plotly you may find SOC and RangeElectric a little bit downwards on the same page
