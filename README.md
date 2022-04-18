@@ -1,4 +1,4 @@
-# myBYOC Mercedes Developer Bring Your Own Car BYOC Example (under construction 2022/04/18)
+# myBYOC Mercedes Developer Bring Your Own Car BYOC Example (ready to use 2022/04/18)
 
 # purpose of this repository
 - this is for educational purposes
@@ -54,7 +54,7 @@
 
 # trouble shooting and other hints
 - the file 3GetAllData.php ist the frame for all data
-- to be more flexible the specific data is defines in different own *.php files
+- to be more flexible the specific data is defines in different own res*.php files
 - within your Internet Browser the follwing Cookies are set and valid for one hour
 - BYOCAR_ACCESSTOKEN => this is the Access Token to request data, i. e. you do not need to go back to step 1 everytime
 - state => this is the product which you have requested in step 1, e. g. "electric vehicle status" in our example
