@@ -103,7 +103,7 @@
     // das wird auf jeden Fall ausgegeben
     echo ("<br>" . $response . "<br>");
 
-    $link = 'https://put-your-domain-name-here/3GET_AllData.php';  // and add the filename
+    $link = 'https://put-your-domain-name-here/3GetAllData.php';  // and add the filename
     echo ("<p> <a href=\"" . $link . "\" target=\"_blank\"> STARTE DATENABFRAGE BYOCAR </a></p>");
 
 
