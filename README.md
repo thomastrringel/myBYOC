@@ -1,5 +1,7 @@
 # myBYOC Mercedes Developer Bring Your Own Car BYOC Example (ready to use 2022/04/18)
 
+Mercedes offers some cool features to request data from your own car. This is nice for programmers like me. So I tried it and it worked. While implmenting it I faced some troubles (which have nothing to do with Merdeces API, but more with some new proecedures for me). This Repos shall help other guys to implement it.
+
 # purpose of this repository
 - this is for educational purposes
 - I have developed this repository since I faced quite some troubles in getting the data from my car and understand how to interprete it in the correct manner
