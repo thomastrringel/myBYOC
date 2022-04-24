@@ -16,7 +16,6 @@
 
   $ValidPreCon = 0; // zähle die erfüllten Voraussetzungen einzeln
   $NeededPreCon = 3; // wie viele Voraussetzungen müssen erfüllt sein?
-
   // prüfe, ob die VIN als Cookie gesetzt ist
   if( isset($_COOKIE["vin"])) {
       $vin = $_COOKIE["vin"]; 
@@ -61,7 +60,10 @@
   $soc = 0;
   $rangeelectric = 0;
   // service vehiclelockstatus
-
+  $positionheading = 999;
+  $doorlockstatusdecklid = 2;
+  $doorlockstatusgas;
+  $doorlockstatusvehicle = 4;
 
 
   // führe die API Abfrage durch (ohne Auswertung => Rückgabe ist 'false' oder ein JSON Array)  
@@ -151,6 +153,10 @@
     global $soc;
     global $rangeelectric;
     // service vehiclelockstatus
+    global $positionheading;
+    global $doorlockstatusdecklid;
+    global $doorlockstatusgas;
+    global $doorlockstatusvehicle;
 
 
     // echo("<br>getKeys=$key: $value ");
@@ -177,6 +183,10 @@
     if ( strcmp("soc", $myresource) == 0 ) { $soc = $myvalue; };
     if ( strcmp("rangeelectric", $myresource) == 0 ) { $rangeelectric = $myvalue; };
 
+    if ( strcmp("positionHeading", $myresource) == 0 ) { $positionheading = $myvalue; };
+    if ( strcmp("doorlockstatusdecklid", $myresource) == 0 ) { $doorlockstatusdecklid = $myvalue; };
+    if ( strcmp("doorlockstatusgas", $myresource) == 0 ) { $doorlockstatusgas = $myvalue; };
+    if ( strcmp("doorlockstatusvehicle", $myresource) == 0 ) { $doorlockstatusvehicle = $myvalue; };
 
 
   }
@@ -259,12 +269,18 @@ if ($ValidPreCon == $NeededPreCon) {
 
 <script>
 
-var RANGELIQUID = <?php echo json_encode($rangeliquid); ?>; // übernehme Variable von PHP - muss vorher definiert sein
-var TANKLEVELPERCENT = <?php echo json_encode($tanklevelpercent); ?>; // übernehme Variable von PHP - muss vorher definiert sein
-var SOC = <?php echo json_encode($soc); ?>; // übernehme Variable von PHP - muss vorher definiert sein
-var RANGEELECTRIC = <?php echo json_encode($rangeelectric); ?>; // übernehme Variable von PHP - muss vorher definiert sein
-var VEHICLESTATUS_SUNROOFSTATUS = <?php echo json_encode($sunroofstatus); ?>; // übernehme Variable von PHP - muss vorher definiert sein
-var VEHICLESTATUS_WINDOWSTATUSFRONTLEFT = <?php echo json_encode($windowstatusfrontleft); ?>; // übernehme Variable von PHP - muss vorher definiert sein
+// übernehme Variable von PHP - muss vorher definiert sein
+var RANGELIQUID = <?php echo json_encode($rangeliquid); ?>; 
+var TANKLEVELPERCENT = <?php echo json_encode($tanklevelpercent); ?>; 
+var SOC = <?php echo json_encode($soc); ?>; 
+var RANGEELECTRIC = <?php echo json_encode($rangeelectric); ?>; 
+var VEHICLESTATUS_SUNROOFSTATUS = <?php echo json_encode($sunroofstatus); ?>; 
+var VEHICLESTATUS_WINDOWSTATUSFRONTLEFT = <?php echo json_encode($windowstatusfrontleft); ?>; 
+var VEHICLESLOCKTATUS_POSITIONHEADING = <?php echo json_encode($positionheading); ?>; 
+var VEHICLELOCKSTATUS_DOORLOCKSTATUSDECKLID = <?php echo json_encode($doorlockstatusdecklid); ?>;
+var VEHICLELOCKSTATUS_DOORLOCKSTATUSGAS = <?php echo json_encode($doorlockstatusgas); ?>;
+var VEHICLELOCKSTATUS_DOORLOCKSTATUSVEHICLE = <?php echo json_encode($doorlockstatusvehicle); ?>;
+
 
 </script>
 
@@ -279,6 +295,15 @@ var VEHICLESTATUS_WINDOWSTATUSFRONTLEFT = <?php echo json_encode($windowstatusfr
 <?php include("resVehicleStatus_SunRoofStatus.php"); ?>
 
 <?php include("resVehicleStatus_WindowStatusFrontLeft.php"); ?>
+
+<?php include("resVehicleLockStatus_positionHeading.php"); ?>
+
+<?php include("resVehicleLockStatus_doorlockstatusdecklid.php"); ?>
+
+<?php include("resVehicleLockStatus_doorlockstatusgas.php"); ?>
+
+<?php include("resVehicleLockStatus_doorlockstatusvehicle.php"); ?>
+
 
 </body>
 
