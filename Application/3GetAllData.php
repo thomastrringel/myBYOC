@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <!-- 01.12.2022 -->
 	<!-- Plotly.js -->
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
@@ -16,6 +17,7 @@
 
   $ValidPreCon = 0; // zähle die erfüllten Voraussetzungen einzeln
   $NeededPreCon = 3; // wie viele Voraussetzungen müssen erfüllt sein?
+
   // prüfe, ob die VIN als Cookie gesetzt ist
   if( isset($_COOKIE["vin"])) {
       $vin = $_COOKIE["vin"]; 
