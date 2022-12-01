@@ -1,6 +1,7 @@
 <?php
 
   // 01.12.2022
+  // http://subdomain.thomas-ringel.de/mb/1IdentifyUser.php?service=3
   // ?service=1..4 definiert welcher service aufgefrufen werden soll
   if(isset($_GET['service'])) {
     $service = $_GET['service'];
@@ -8,7 +9,15 @@
     $service = 1; // default
   }
 
-  echo $service;
+  if(isset($_GET['debug'])) {
+    // debug Cookie schon bekannt im System => tue nichts
+    ;
+  } else {
+      // setze Cookie debug=FALSE, wenn es noch keinen gesetzten Cookie debug gibt => sonst kommt später eine Fehlermeldung wegen eines nicht gesetzten Cookies
+      setcookie("debug", "FALSE", time()+3600, "/mb/", "");
+  }
+
+  echo ("service=" . $service);
 
     // In order to initiate the end user’s authorization, you must redirect the end user’s browser to our authorize endpoint. 
     // This will provide a login screen to the end user for authentication. After successful authentication, the consent screen is displayed, 
@@ -27,11 +36,11 @@
     //      The parameter SHOULD be used for preventing cross-site request forgery.
 
     $scope = Array();
-    $scope[1] = 'mb:vehicle:mbdata:vehiclestatus offline_access'; // 3GET_VehicleLockStatus.php
-    $scope[2] = 'mb:vehicle:mbdata:payasyoudrive offline_access'; // 3GET_PayAsYouDrive.php
-    $scope[3] = 'mb:vehicle:mbdata:fuelstatus offline_access'; 
-    $scope[4] = 'mb:vehicle:mbdata:evstatus offline_access';
-    $scope[5] = 'mb:vehicle:mbdata:vehiclelock offline_access';    
+    $scope[1] = 'openid offline_access mb:vehicle:mbdata:vehiclestatus'; // 3GET_VehicleLockStatus.php
+    $scope[2] = 'openid offline_access mb:vehicle:mbdata:payasyoudrive'; // 3GET_PayAsYouDrive.php
+    $scope[3] = 'openid offline_access mb:vehicle:mbdata:fuelstatus'; 
+    $scope[4] = 'openid offline_access mb:vehicle:mbdata:evstatus';
+    $scope[5] = 'openid offline_access mb:vehicle:mbdata:vehiclelock';    
 
     $state = Array();
     $state[1] = 'vehiclestatus';
@@ -43,9 +52,14 @@
     // $service = 4; // welche Dienst willst du abfragen?
 
     $response_type = 'code';
-    $client_id = 'put-your-client-ID-here';    
-    $redirect_uri = 'https://put-your-domain-name-here/2GetAuthorizationCode.php';  // and add the 2GetAuthorizationCode.php  
+    $client_id = '165329f9-8347-4f65-b5ae-92260f6c0e16';    
+    $redirect_uri = 'https://subdomain.thomas-ringel.de/mb/2GetAuthorizationCode.php';    
     
+    // $prompt = 'login consent';
+    // $code = 'code';   
+    // $client_secret = 'BukeroOJuSVpZpyPLsdDpckBuKvqwlGcBUVCRBiaNhkddSGrBEgrfifyHBKKbSZf';
+    // https://www.base64encode.org/
+    // $clientIdSecret64 = 'MDFlM2Y3ZjYtOTc5ZC00Y2FhLWJkNDItNzZjMTIzZThhNDI5OkJ1a2Vyb09KdVNWcFpweVBMc2REcGNrQnVLdnF3bEdjQlVWQ1JCaWFOaGtkZFNHckJFZ3JmaWZ5SEJLS2JTWmY='; 
 
     $fields = http_build_query(array(
         "response_type" => $response_type,
@@ -63,7 +77,8 @@
     echo ("<br>?service=" . $service);
     echo ("<br>");
 
-    $link = 'https://id.mercedes-benz.com/as/authorization.oauth2?' . $fields;
+    // Auth URL
+    $link = 'https://ssoalpha.dvb.corpinter.net/v1/auth?' . $fields;
     echo ("<p> <a href=\"" . $link . "\" target=\"_blank\"> STARTE AUTHENTIFIZIERUNG CONNECT ME </a></p>");
 
 ?>
