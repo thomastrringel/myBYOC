@@ -52,12 +52,12 @@
     // $service = 4; // welche Dienst willst du abfragen?
 
     $response_type = 'code';
-    $client_id = '165329f9-8347-4f65-b5ae-92260f6c0e16';    
+    $client_id = 'putyourclientidhere';    
     $redirect_uri = 'https://subdomain.thomas-ringel.de/mb/2GetAuthorizationCode.php';    
     
     // $prompt = 'login consent';
     // $code = 'code';   
-    // $client_secret = 'BukeroOJuSVpZpyPLsdDpckBuKvqwlGcBUVCRBiaNhkddSGrBEgrfifyHBKKbSZf';
+    // $client_secret = 'BukeroOJuSVpZpyPLsdDpckBuKvqwlGcBUVCRBiaNhkddSGrBEgrfifyHBKKbSZf'; // no valid client_secret
     // https://www.base64encode.org/
     // $clientIdSecret64 = 'MDFlM2Y3ZjYtOTc5ZC00Y2FhLWJkNDItNzZjMTIzZThhNDI5OkJ1a2Vyb09KdVNWcFpweVBMc2REcGNrQnVLdnF3bEdjQlVWQ1JCaWFOaGtkZFNHckJFZ3JmaWZ5SEJLS2JTWmY='; 
 
