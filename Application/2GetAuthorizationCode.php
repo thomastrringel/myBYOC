@@ -3,7 +3,7 @@
 // 01.12.2022
 // ACHTUNG => ICH WILL MIR DEN ACCESSTOKEN ALS COOKIE SPEICHERN
 // DAHER DARF VOR DEM SPEICHERN DES COOKIES KEINE AUSGABE PER ECHO ETC. ERFOLGEN
-setcookie("vin", "W1K2130111B006842", time()+3600, "/mb/", ""); // speichere $vin als Cookie für 1h speichern - nur zu Testzwecken (ohne Funktion)
+setcookie("vin", "putyourvinhere", time()+3600, "/mb/", ""); // speichere $vin als Cookie für 1h speichern - nur zu Testzwecken (ohne Funktion)
 
 // prüfe ob debugging informationen angezeigt werden sollen 
 $debug = $_COOKIE["debug"]; // wenn ein Cookie debug=true gesetzt ist, dann werden Debugdaten ausgegeben
@@ -17,8 +17,8 @@ $access_token = $_GET["access_token"];
 setcookie("state", $state, time()+3600, "/mb/", ""); // speichere $state als Cookie für 1h speichern - merke dir für welchen Dienst der Token erstellt wurde
 
 // definiere Variablen zur Erzeugung des Access Tokens
-$client_id = '165329f9-8347-4f65-b5ae-92260f6c0e16';
-$client_secret = 'ESmqXwBwhfvlPTjrLougiDxMRMYAKrPBiprtZnfIcovtWPKFDbGFtHRDBdnDsjvr';
+$client_id = 'putyourclientidhere';
+$client_secret = 'putyourclientsecrethere';
 $redirect_uri = 'https://subdomain.thomas-ringel.de/mb/2GetAuthorizationCode.php';
 
 // Base64 encoding is a way of encoding binary data into text so that it can be easily transmitted across a network without error. 
