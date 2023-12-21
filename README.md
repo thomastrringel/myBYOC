@@ -1,5 +1,5 @@
 # myBYOC Mercedes Developer Bring Your Own Car BYOC Example (ready to use 2022/12/17)
-# 31/10/32 - service deprecated by Mercedes-Benz
+# 31/10/23 - service deprecated by Mercedes-Benz
 # 17/12/22 - updated new Mercedes server address
 
 Mercedes offers some cool features to request data from your own car. This is nice for programmers like me. So I tried it and it worked. While implmenting it I faced some troubles (which have nothing to do with Merdeces API, but more with some new proecedures for me). This Repos shall help other guys to implement it.
